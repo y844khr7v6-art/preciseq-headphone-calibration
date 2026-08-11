@@ -10,5 +10,29 @@
     ],
     "version": 1,
     "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "sennheiserhd6xxhires2hz",
+    "type": 1,
+    "brandName": [
+      "Sennheiser"
+    ],
+    "modelName": [
+      "HD 6XX Hi-Res 2Hz"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "sennheiserhd6xxextreme1hz",
+    "type": 1,
+    "brandName": [
+      "Sennheiser"
+    ],
+    "modelName": [
+      "HD 6XX Extreme 1Hz"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
   }
 ]
