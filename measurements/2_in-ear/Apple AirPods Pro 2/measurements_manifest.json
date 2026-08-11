@@ -1,0 +1,137 @@
+{
+  "model": "Apple AirPods Pro 2",
+  "source": "AutoEq indexed measurement/results catalog",
+  "notes": "All currently indexed AirPods Pro 2 variants discovered in AutoEq. Crinacle raw measurement files are referenced by AutoEq name_index but are not redistributed in the AutoEq repository; this manifest preserves every indexed variant and source path so we do not collapse the volume-dependent/adaptive measurements into one profile.",
+  "measurements": [
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (ANC mode)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (ANC mode)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 ANC L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 ANC R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (passive mode)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (passive mode)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 Passive L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 Passive R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (transparency mode)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (transparency mode)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 Transparency L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/AirPods Pro 2 Transparency R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (51dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (51dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 51 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 51 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (56dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (56dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 56 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 56 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (60dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (60dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 60 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 60 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (65dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (65dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 65 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 65 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (69dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (69dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 69 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 69 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (73dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (73dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 73 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 73 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (77dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (77dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 77 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 77 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (81dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (81dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 81 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 81 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (84dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (84dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 84 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 84 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (88dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (88dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 88 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 88 R.txt"
+    },
+    {
+      "source": "crinacle",
+      "rig": "711",
+      "name": "Apple AirPods Pro 2 (91dB + ANC)",
+      "result_path": "results/crinacle/711 in-ear/Apple AirPods Pro 2 (91dB + ANC)",
+      "raw_left": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 91 L.txt",
+      "raw_right": "measurements/crinacle/raw_data/IEC60318-4 IEM Measurements (TSV txt)/APP2 Pinna 91 R.txt"
+    },
+    {
+      "source": "Filk",
+      "rig": "in-ear",
+      "name": "Apple Airpods Pro 2",
+      "result_path": "results/Filk/in-ear/Apple Airpods Pro 2"
+    },
+    {
+      "source": "Harpo",
+      "rig": "in-ear",
+      "name": "Apple Airpods Pro 2",
+      "result_path": "results/Harpo/in-ear/Apple Airpods Pro 2"
+    },
+    {
+      "source": "HypetheSonics",
+      "rig": "GRAS RA0045 in-ear",
+      "name": "Apple Airpods Pro 2",
+      "result_path": "results/HypetheSonics/GRAS RA0045 in-ear/Apple Airpods Pro 2"
+    }
+  ]
+}
