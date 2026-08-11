@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sennheiserhd6xx",
+    "type": 1,
+    "brandName": [
+      "Sennheiser"
+    ],
+    "modelName": [
+      "HD 6XX"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  }
+]
