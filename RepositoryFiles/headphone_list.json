@@ -46,5 +46,209 @@
     ],
     "version": 1,
     "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc51db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 51 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc56db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 56 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc60db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 60 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc65db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 65 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc69db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 69 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc73db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 73 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc77db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 77 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc81db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 81 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc84db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 84 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc88db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 88 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2anc91db",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 ANC 91 dB"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2passive",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 Passive"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2transparency",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 Transparency"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2filk",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 \u2014 Filk"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2harpo",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 \u2014 Harpo"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "appleairpodspro2hypethesonics",
+    "type": 0,
+    "brandName": [
+      "Apple"
+    ],
+    "modelName": [
+      "AirPods Pro 2 \u2014 HypetheSonics RA0045"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
   }
 ]
