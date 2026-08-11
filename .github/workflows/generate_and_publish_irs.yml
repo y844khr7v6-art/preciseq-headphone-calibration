@@ -31,11 +31,14 @@ jobs:
       - name: Install Python Dependencies
         run: pip install -r scripts/requirements.txt
 
-      - name: Generate PrecisEQ IRs
+      - name: Generate HD 6XX PrecisEQ IRs
         run: python scripts/generate_hd6xx.py
+
+      - name: Generate AirPods Pro 2 PrecisEQ IRs
+        run: python scripts/generate_airpodspro2.py
 
       - name: Commit generated repository files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-generate HD 6XX PrecisEQ IRs"
+          commit_message: "Auto-generate PrecisEQ IRs"
           file_pattern: '.'
