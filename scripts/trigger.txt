@@ -1,1 +1,1 @@
-Initial PrecisEQ generation trigger.
+Generate HD 6XX Hybrid 1Hz experiment.
