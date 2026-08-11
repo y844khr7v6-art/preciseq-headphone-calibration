@@ -18,8 +18,6 @@ SOURCE = "https://raw.githubusercontent.com/jaakkopasanen/AutoEq/master/measurem
 FS_MAP = {"44100": "44", "48000": "48", "96000": "96", "192000": "192"}
 EXPECTED = set(FS_MAP.values())
 
-# Keep the existing reference profile intact and add two deliberately more resolving
-# experimental variants from the exact same oratory1990 stock measurement.
 PROFILES = [
     {
         "name": "Sennheiser HD 6XX",
@@ -49,6 +47,17 @@ PROFILES = [
             "--treble-window-size", "0.5",
         ],
         "note": "Experimental: 1 Hz FIR resolution, 1/24-oct main smoothing, 1/2-oct treble smoothing"
+    },
+    {
+        "name": "Sennheiser HD 6XX Hybrid 1Hz",
+        "id": "sennheiserhd6xxhybrid1hz",
+        "model": "HD 6XX Hybrid 1Hz",
+        "extra_args": [
+            "--f-res", "1",
+            "--window-size", str(1 / 24),
+            "--treble-window-size", "1.0",
+        ],
+        "note": "Experimental hybrid: Extreme 1 Hz frequency sampling with Hi-Res 1-oct treble smoothing"
     },
 ]
 
@@ -82,8 +91,6 @@ def generate_profile(profile, measurement, target):
     input_dir = TEMP_IN / "1_open-back"
     input_dir.mkdir(parents=True, exist_ok=True)
 
-    # Filename controls the model name AutoEq emits, while the CSV contents remain
-    # the exact same stock oratory1990 measurement for all profiles.
     profile_measurement = input_dir / f"{profile['name']}.csv"
     shutil.copy2(measurement, profile_measurement)
 
@@ -139,10 +146,11 @@ def main():
 
     (REPO_DIR / "EXPERIMENTS.md").write_text(
         "# HD 6XX calibration experiments\n\n"
-        "All three profiles use the same stock Sennheiser HD 6XX measurement from oratory1990 and the same target-neutral PrecisEQ zero target.\n\n"
+        "All profiles use the same stock Sennheiser HD 6XX measurement from oratory1990 and the same target-neutral PrecisEQ zero target.\n\n"
         "- HD 6XX: reference profile, AutoEq generator defaults.\n"
         "- HD 6XX Hi-Res 2Hz: 2 Hz FIR resolution, 1/24-oct main smoothing, 1-oct treble smoothing.\n"
-        "- HD 6XX Extreme 1Hz: 1 Hz FIR resolution, 1/24-oct main smoothing, 1/2-oct treble smoothing.\n\n"
+        "- HD 6XX Extreme 1Hz: 1 Hz FIR resolution, 1/24-oct main smoothing, 1/2-oct treble smoothing.\n"
+        "- HD 6XX Hybrid 1Hz: 1 Hz FIR resolution and 1/24-oct main smoothing from Extreme, but the gentler 1-oct treble smoothing from Hi-Res. Designed to test the preferred Extreme low/mid behavior with the preferred Hi-Res top end.\n\n"
         "We tested 1/48-oct main smoothing, but the oratory1990 source sampling is not dense enough for AutoEq's Savitzky-Golay smoother at that window size. 1/24 octave is therefore the practical source-resolution floor for this measurement in AutoEq 4.1.2.\n\n"
         "The listening target remains a separate PrecisEQ in-app stage.\n",
         encoding="utf-8"
