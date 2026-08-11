@@ -13,17 +13,56 @@ REPO_DIR = ROOT / "RepositoryFiles"
 TARGET_DIR = ROOT / "targets"
 TEMP_IN = ROOT / "temp_in"
 TEMP_OUT = ROOT / "temp_out"
-NAME = "Sennheiser HD 6XX"
-HP_ID = "sennheiserhd6xx"
+SOURCE_NAME = "Sennheiser HD 6XX"
 SOURCE = "https://raw.githubusercontent.com/jaakkopasanen/AutoEq/master/measurements/oratory1990/data/over-ear/Sennheiser%20HD%206XX.csv"
+FS_MAP = {"44100": "44", "48000": "48", "96000": "96", "192000": "192"}
+EXPECTED = set(FS_MAP.values())
+
+# Keep the existing reference profile intact and add two deliberately more resolving
+# experimental variants from the exact same oratory1990 stock measurement.
+PROFILES = [
+    {
+        "name": "Sennheiser HD 6XX",
+        "id": "sennheiserhd6xx",
+        "model": "HD 6XX",
+        "extra_args": [],
+        "note": "Reference / generator-default smoothing"
+    },
+    {
+        "name": "Sennheiser HD 6XX Hi-Res 2Hz",
+        "id": "sennheiserhd6xxhires2hz",
+        "model": "HD 6XX Hi-Res 2Hz",
+        "extra_args": [
+            "--f-res", "2",
+            "--window-size", str(1 / 24),
+            "--treble-window-size", "1.0",
+        ],
+        "note": "Experimental: 2 Hz FIR resolution, 1/24-oct main smoothing, 1-oct treble smoothing"
+    },
+    {
+        "name": "Sennheiser HD 6XX Extreme 1Hz",
+        "id": "sennheiserhd6xxextreme1hz",
+        "model": "HD 6XX Extreme 1Hz",
+        "extra_args": [
+            "--f-res", "1",
+            "--window-size", str(1 / 48),
+            "--treble-window-size", "0.5",
+        ],
+        "note": "Experimental: 1 Hz FIR resolution, 1/48-oct main smoothing, 1/2-oct treble smoothing"
+    },
+]
 
 
-def main():
+def sanitize(name):
+    return re.sub(r"[\W_]+", "", name).lower()
+
+
+def ensure_measurement_and_zero_target():
     MEAS_DIR.mkdir(parents=True, exist_ok=True)
     REPO_DIR.mkdir(parents=True, exist_ok=True)
     TARGET_DIR.mkdir(parents=True, exist_ok=True)
 
-    measurement = MEAS_DIR / f"{NAME}.csv"
+    measurement = MEAS_DIR / f"{SOURCE_NAME}.csv"
     if not measurement.exists():
         urllib.request.urlretrieve(SOURCE, measurement)
 
@@ -34,12 +73,19 @@ def main():
         writer.writerow(["frequency", "raw"])
         for row in reader:
             writer.writerow([row["frequency"], "0.00"])
+    return measurement, target
 
+
+def generate_profile(profile, measurement, target):
     shutil.rmtree(TEMP_IN, ignore_errors=True)
     shutil.rmtree(TEMP_OUT, ignore_errors=True)
     input_dir = TEMP_IN / "1_open-back"
     input_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(measurement, input_dir / measurement.name)
+
+    # Filename controls the model name AutoEq emits, while the CSV contents remain
+    # the exact same stock oratory1990 measurement for all profiles.
+    profile_measurement = input_dir / f"{profile['name']}.csv"
+    shutil.copy2(measurement, profile_measurement)
 
     cmd = [
         sys.executable, "-m", "autoeq",
@@ -51,39 +97,59 @@ def main():
         "--phase", "minimum",
         "--bit-depth", "32",
         "--preamp", "-11.8",
+        *profile["extra_args"],
     ]
+    print(f"Generating {profile['name']}: {profile['note']}")
     subprocess.run(cmd, check=True)
 
-    fs_map = {"44100": "44", "48000": "48", "96000": "96", "192000": "192"}
     copied = set()
     for wav in TEMP_OUT.rglob("*.wav"):
         m = re.match(r"^(.*?)\s+minimum\s+phase\s+(\d+)\s*Hz\.wav$", wav.name, re.I)
-        if not m:
+        if not m or sanitize(m.group(1)) != profile["id"]:
             continue
-        if re.sub(r"[\W_]+", "", m.group(1)).lower() != HP_ID:
-            continue
-        rate = fs_map.get(m.group(2))
+        rate = FS_MAP.get(m.group(2))
         if rate:
-            shutil.copy2(wav, REPO_DIR / f"{HP_ID}_1_{rate}.wav")
+            shutil.copy2(wav, REPO_DIR / f"{profile['id']}_1_{rate}.wav")
             copied.add(rate)
 
-    expected = {"44", "48", "96", "192"}
-    if copied != expected:
-        raise RuntimeError(f"Expected IRs {sorted(expected)}, generated {sorted(copied)}")
+    if copied != EXPECTED:
+        raise RuntimeError(f"{profile['name']}: expected IRs {sorted(EXPECTED)}, generated {sorted(copied)}")
 
-    headphone_list = [{
-        "id": HP_ID,
-        "type": 1,
-        "brandName": ["Sennheiser"],
-        "modelName": ["HD 6XX"],
-        "version": 1,
-        "noDspOffsetDb": 0.0
-    }]
-    (REPO_DIR / "headphone_list.json").write_text(json.dumps(headphone_list, indent=2) + "\n", encoding="utf-8")
+
+def main():
+    measurement, target = ensure_measurement_and_zero_target()
+
+    for profile in PROFILES:
+        generate_profile(profile, measurement, target)
+
+    headphone_list = []
+    for profile in PROFILES:
+        headphone_list.append({
+            "id": profile["id"],
+            "type": 1,
+            "brandName": ["Sennheiser"],
+            "modelName": [profile["model"]],
+            "version": 1,
+            "noDspOffsetDb": 0.0
+        })
+
+    (REPO_DIR / "headphone_list.json").write_text(
+        json.dumps(headphone_list, indent=2) + "\n", encoding="utf-8"
+    )
+
+    (REPO_DIR / "EXPERIMENTS.md").write_text(
+        "# HD 6XX calibration experiments\n\n"
+        "All three profiles use the same stock Sennheiser HD 6XX measurement from oratory1990 and the same target-neutral PrecisEQ zero target.\n\n"
+        "- HD 6XX: reference profile, AutoEq generator defaults.\n"
+        "- HD 6XX Hi-Res 2Hz: 2 Hz FIR resolution, 1/24-oct main smoothing, 1-oct treble smoothing.\n"
+        "- HD 6XX Extreme 1Hz: 1 Hz FIR resolution, 1/48-oct main smoothing, 1/2-oct treble smoothing.\n\n"
+        "The listening target remains a separate PrecisEQ in-app stage.\n",
+        encoding="utf-8"
+    )
 
     shutil.rmtree(TEMP_IN, ignore_errors=True)
     shutil.rmtree(TEMP_OUT, ignore_errors=True)
-    print("PrecisEQ HD 6XX repository files generated successfully.")
+    print("PrecisEQ HD 6XX reference + experimental repository files generated successfully.")
 
 
 if __name__ == "__main__":
