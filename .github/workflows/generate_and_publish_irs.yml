@@ -1,0 +1,41 @@
+name: Generate and Publish IRs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/generate_and_publish_irs.yml'
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies
+        run: sudo apt-get update && sudo apt-get install -y libsndfile1
+
+      - name: Install Python Dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate PrecisEQ IRs
+        run: python scripts/generate_hd6xx.py
+
+      - name: Commit generated repository files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-generate HD 6XX PrecisEQ IRs"
+          file_pattern: '.'
