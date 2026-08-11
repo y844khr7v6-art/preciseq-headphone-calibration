@@ -34,5 +34,17 @@
     ],
     "version": 1,
     "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "sennheiserhd6xxhybrid1hz",
+    "type": 1,
+    "brandName": [
+      "Sennheiser"
+    ],
+    "modelName": [
+      "HD 6XX Hybrid 1Hz"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
   }
 ]
