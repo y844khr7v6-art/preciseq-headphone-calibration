@@ -37,6 +37,9 @@ jobs:
       - name: Generate AirPods Pro 2 PrecisEQ IRs
         run: python scripts/generate_airpodspro2.py
 
+      - name: Generate V-MODA Crossfade LP PrecisEQ IRs
+        run: python scripts/generate_vmoda_crossfade_lp.py
+
       - name: Commit generated repository files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
