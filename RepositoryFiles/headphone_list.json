@@ -250,5 +250,17 @@
     ],
     "version": 1,
     "noDspOffsetDb": 0.0
+  },
+  {
+    "id": "vmodacrossfadelp",
+    "type": 2,
+    "brandName": [
+      "V-MODA"
+    ],
+    "modelName": [
+      "Crossfade LP"
+    ],
+    "version": 1,
+    "noDspOffsetDb": 0.0
   }
 ]
